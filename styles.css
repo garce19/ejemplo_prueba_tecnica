@@ -1,0 +1,8 @@
+/* Estilos para el botón de envío */
+.btn-primary:hover {
+    transform: scale(1.1); /* Hace que el botón crezca en un 10% al hacer hover */
+    background-color: #33caff; /* Cambia el color de fondo al hacer hover */
+    color: #ffffff; /* Cambia el color del texto al hacer hover */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Agrega una transición suave de 0.3 segundos */
+  }
+  

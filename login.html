@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- Enlaces a los archivos CSS de Bootstrap y ADMINLTE-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+  <body class="hold-transition login-page">
+    <h1>TEST-ELECTIONS</h1>
+    <div class="login-box">
+      <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">
+            <strong>Sign in to start your session</strong>
+          </p>
+          <form id="loginForm" action="login.php" method="post">
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Email"
+                id="email"
+                name="email"
+              />
+              <span class="input-group-text"
+                ><i class="fa-regular fa-envelope"></i
+              ></span>
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                id="password"
+                name="password"
+              />
+              <span class="input-group-text"><i class="fa fa-lock"></i></span>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary btn-lock">
+                  Sign In
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- Enlaces a los archivos JS de jQuery, Bootstrap y ADMINLTE -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://adminlte.io/themes/v3/dist/js/adminlte.min.js"></script>
+
+    <script>
+      // Validación del formulario de login
+
+      $(document).ready(function () {
+        $("#loginForm").submit(function (event) {
+          event.preventDefault();
+
+          // Realiza las validaciones necesarias
+          var email = $("#email").val();
+          var password = $("#password").val();
+
+          if (email === "") {
+            alert("Please, enter an email.");
+          } else if (!isValidEmail(email)) {
+            alert("Please, enter a valid email.");
+          } else if (password === "") {
+            alert("Please, enter a password.");
+          } else {
+            // Si los campos son válidos, se puede enviar el formulario o realizar otras acciones
+            this.submit();
+          }
+        });
+      });
+
+      function isValidEmail(email) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email)
+      }
+    </script>
+  </body>
+</html>
